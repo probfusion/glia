@@ -1,0 +1,8 @@
+packages:
+  # include packages subfolders from root that match apps and pkgs
+  - "js/apps/*" # ex. js/apps/myapp
+  - "ts/apps/*" # ex. js/apps/myapp
+  - "js/pkgs/*" # ex. ts/pkgs/mypkg
+  - "ts/pkgs/*" # ex. ts/pkgs/mypkg
+  # exclude any folders named temp
+  - "!**/temp/**" # any folder named temp found anywhere

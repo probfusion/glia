@@ -1,0 +1,5 @@
+tasks:
+  lint:
+    command: "rome check ."
+  format:
+    command: "rome format . --write"

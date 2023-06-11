@@ -1,0 +1,27 @@
+tasks:
+  warning:
+    command: 'echo'
+    args:
+      - '"task must be extended in local moon.yml configuration. purposefully failing..."'
+      - ';'
+      - '$(exit 1)' # for pwsh
+      - ';'
+      - 'exit 1' # for bash
+  info: 
+    command: "conda"
+    args: "mamba info"
+  list:
+    command: "conda"
+    args: "mamba list"
+  check_fmt:
+    command: "conda"
+    args: "black --check --diff ."
+  isort:
+    command: "conda"
+    args: "isort --profile black ."
+  format:
+    command: "conda"
+    args: 
+
+implicitDeps:
+  - 'warning'

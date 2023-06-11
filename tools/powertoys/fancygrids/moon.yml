@@ -1,0 +1,47 @@
+language: 'python'
+
+project:
+  name: 'fancygrids'
+  description: 'create perfect grids for powertoys fancyzones specifying rows and columns. re-number existing grids.'
+  maintainers: ['probfusion']
+
+
+fileGroups:
+  assets:
+    - '*.json'
+  sources:
+    - '*.py'    
+  tests:
+    - 'tests/**/*'
+  notebooks:
+    - '*.ipynb'
+
+workspace:
+  inheritedTasks:
+    exclude: ['warning']  # override the inherited error below
+
+tags:
+  - 'tools'
+  - 'windows'
+  - 'powertoys'
+  - &condaEnv 'py11'
+
+tasks:
+  warning:
+    command: 'echo'
+    args:
+      - '"activating conda environment:"'
+      - *condaEnv
+
+  info: &activate
+    args: 
+      - "activate"
+      - *condaEnv
+      - "&&"
+    options:
+      mergeArgs: 'prepend'
+
+  list: *activate
+  check_fmt: *activate
+  isort: *activate
+

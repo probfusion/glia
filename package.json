@@ -1,0 +1,40 @@
+{
+  "name": "glia",
+  "version": "0.0.1",
+  "description": "Miscellaneous snippets and utilities.",
+  "main": "index.js",
+  "scripts": {
+    "moon": "moon",
+    "preinstall": "npx only-allow pnpm",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ./",
+    "lintjs": "npx eslint ./js/",
+    "formatjs": "npx prettier --write ./js/"
+  },
+  "keywords": [
+    "tool",
+    "tools",
+    "snippet",
+    "snippets",
+    "gist",
+    "gists",
+    "utility",
+    "utilities",
+    "obsidian",
+    "extension",
+    "plugin"
+  ],
+  "author": "probfusion",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@swc/cli": "^0.1.62",
+    "@swc/core": "^1.3.62",
+    "rome": "12.1.3",
+    "typescript": "^5.1.3"
+  },
+  "packageManager": "pnpm@8.6.0",
+  "engines": {
+    "node": "20.2.0"
+  }
+}
