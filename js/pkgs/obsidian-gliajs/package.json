@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "description": "Obsidian helper package using Dataview and CustomJS plugins",
+  "license": "MIT",
   "files": ["dist"],
   "main": ".dist/obsidian-gliajs.cjs",
   "module": ".dist/obsidian-gliajs.es.js",

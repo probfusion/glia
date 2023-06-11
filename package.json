@@ -1,29 +1,12 @@
 {
   "name": "glia",
   "version": "0.0.1",
-  "description": "Miscellaneous snippets and utilities.",
-  "main": "index.js",
+  "description": "Miscellaneous snippets and utilities. This is my monorepo's root package.json. See individual pkg/app package.json files for more information.",
   "scripts": {
     "moon": "moon",
     "preinstall": "npx only-allow pnpm",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx eslint ./",
-    "lintjs": "npx eslint ./js/",
-    "formatjs": "npx prettier --write ./js/"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "tool",
-    "tools",
-    "snippet",
-    "snippets",
-    "gist",
-    "gists",
-    "utility",
-    "utilities",
-    "obsidian",
-    "extension",
-    "plugin"
-  ],
   "author": "probfusion",
   "license": "MIT",
   "type": "module",
