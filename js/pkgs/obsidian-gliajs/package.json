@@ -1,3 +1,18 @@
 {
-  "type": "commonjs"
+  "name": "obsidian-gliajs",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Obsidian helper package using Dataview and CustomJS plugins",
+  "files": ["dist"],
+  "main": ".dist/obsidian-gliajs.cjs",
+  "module": ".dist/obsidian-gliajs.es.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/probfusion/obsidian-gliajs.git"
+  },
+  "keywords": ["obsidian", "virtual reality", "augmented reality", "snow crash"],
+  "devDependencies": {
+    "vite": "^4.3.9",
+    "vite-plugin-commonjs-externals": "^0.1.3"
+  }
 }

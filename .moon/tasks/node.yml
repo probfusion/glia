@@ -2,4 +2,10 @@ tasks:
   lint:
     command: "rome check ."
   format:
-    command: "rome format . --write"
+    command: "rome format src --write"
+  dev:
+    command: "vite"
+  build: 
+    command: "vite build"
+  preview:
+    command: "vite preview"

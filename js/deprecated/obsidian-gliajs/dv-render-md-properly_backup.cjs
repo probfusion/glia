@@ -43,14 +43,14 @@ async function renderMdProperly(template, dv) {
       newTemplate.push(lineTemplate)
     }
   }
-  newTemplate = newTemplate.join("\n")
+  newTemplate = newTemplate.join('\n')
 
   // Render the template as a section.
-  const extraClassName = "dv-rerendered-md"
-  const section = dv.el("section", newTemplate, { cls: extraClassName })
+  const extraClassName = 'dv-rerendered-md'
+  const section = dv.el('section', newTemplate, { cls: extraClassName })
 
   // Organize the Reading View DOM.
-  const childSpan = section.querySelector("span.node-insert-event")
+  const childSpan = section.querySelector('span.node-insert-event')
   grandpaKidnaps(childSpan, section)
 
   // Remove extra lines from the section in reading view.
@@ -58,7 +58,7 @@ async function renderMdProperly(template, dv) {
   //   `div.markdown-reading-view section.${extraClassName}`,
   // )
   const readSection = document.querySelector(`.markdown-reading-view section.${extraClassName}`)
-  console.log("found: ", readSection)
+  console.log('found: ', readSection)
   if (readSection) {
     // let extraLine = readSection.querySelector("div.cm-line")
     // while (extraLine) {
@@ -67,7 +67,7 @@ async function renderMdProperly(template, dv) {
     //   console.log("removed")
     //   extraLine = readSection.querySelector("div.cm-line")
     // }
-    const extraLines = readSection.querySelectorAll("div.cm-line")
+    const extraLines = readSection.querySelectorAll('div.cm-line')
     extraLines.forEach((line) => line.remove())
 
     // Organize the Reading View DOM.
