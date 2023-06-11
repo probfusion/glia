@@ -4,8 +4,9 @@
 ; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
 ;
 [subrepo]
-	remote = none
+	remote = https://github.com/probfusion/obsidian-gliajs.git
 	branch = master
-	commit = 
+	commit = 27f39d1a643c70f15b8cbb6b07965d5af035c109
 	method = merge
 	cmdver = 0.4.6
+	parent = b51fa33094d6c0f97277e1cf6b1470585ef0420b
