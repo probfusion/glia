@@ -19,8 +19,8 @@ toolchain:
 | 🔨 tool | 📝 note | 🤔 why |
 |-- | -- | --|
 | [pnpm](https://pnpm.io/) | `npm` replacement | performance, workspaces |
-| [prettier](https://prettier.io/) | formatter; vs code extension | consistency
-| [eslint](https://eslint.org/) | code analyzer | standard |
+| [rome](https://rome.tools/) | formatter and linter | replaces prettier and eslint |
+| [vite](https://vitejs.dev/) | build | fast, includes swc |
 
 ## ![ts](https://skillicons.dev/icons?i=ts&theme=dark)  typescript
 

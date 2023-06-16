@@ -44,7 +44,7 @@ node:
 typescript:
   # When `syncProjectReferences` is enabled and a dependent project reference
   # *does not* have a `tsconfig.json`, automatically create one.
-  createMissingConfig: true
+  createMissingConfig: false
 
   # Name of `tsconfig.json` file in each project root.
   # projectConfigFileName: 'tsconfig.json'

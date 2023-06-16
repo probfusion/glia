@@ -76,7 +76,7 @@ urllib3 # better urllib
 httpx # async requests
 johnnydep # dependency tree for pip and if mamba repoquery doesn't work
 pipreqs # pip requirements.txt generator based on imports in project
-isort # sort imports automatically
+ruff # fast linter, replaces flake8, isort
 black # format python files
 
 ```
