@@ -1,0 +1,68 @@
+channels:
+  - pytorch
+  - nvidia
+  - huggingface
+  - microsoft
+  - conda-forge
+dependencies:
+  # PyTorch CUDA 11.8
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=11.8
+  # Data Essentials
+  - numpy
+  - pandas
+  - jupyterlab
+  - scipy
+  - matplotlib
+  # Web Essentials
+  - urllib3 # better urllib
+  - httpx # async requests
+  # Data Science General
+  - ydata-profiling # automatic eda
+  - streamlit
+  # Plotting
+  - seaborn
+  - plotly
+  - altair
+  - vega_datasets
+  # Probabilistic Programming
+  - nutpie
+  - pymc
+  - pyro-ppl
+  # pomegranate v1+ (PyTorch rewrite) is not yet available in conda-forge.
+  # Computer Vision and Diffusers
+  - opencv
+  - accelerate
+  - diffusers
+  # LLMs and Natural Language Processing
+  - transformers
+  - tokenizers
+  - datasets
+  - nltk
+  - spacy
+  - cupy
+  - spacy-transformers
+  - textblob
+  - bertopic # topic modeling
+  - sparse_dot_topn
+  - rapidfuzz
+  # polyfuzz and string_grouper not available on conda-forge yet.
+  # Web Scraping
+  - selenium # standard
+  - beautifulsoup4 # standard
+  # selectolax not available in conda. faster beautifulsoup4
+  - pytest-playwright # better selenium
+  # Code Quality
+  - nptyping # better numpy and pandas type hinting
+  - beartype # fast runtime type checking with validation
+  - pydantic # data validation
+  - ruff # fast linter, replaces flake8, isort
+  - black
+  - pytest
+  # Meta
+  - johnnydep # dependency tree for pip and if mamba repoquery doesn't work
+  - pipreqs # pip requirements.txt generator based on imports in project
+  # Extras
+  - jupyter-collaboration

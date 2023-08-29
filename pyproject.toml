@@ -1,2 +1,20 @@
-[tool.isort]
-profile = "black"
+[tool.black]
+# Line length 96 is simply because I like base 12. 96/12 = 8, another nice number for computing.
+line-length = 96
+target-version = ['py311']
+# Use single quotes, can format with ruff.
+skip-string-normalization = true
+
+[tool.ruff]
+# Config: https://beta.ruff.rs/docs/configuration/
+# and https://beta.ruff.rs/docs/settings/
+line-length = 96
+target-version = 'py311'
+format = 'grouped'
+
+# Rules: https://beta.ruff.rs/docs/rules/
+# Always include 'Q' for single quote usage with Black
+select = ['ALL']
+
+[tool.ruff.pydocstyle]
+convention = 'google'
