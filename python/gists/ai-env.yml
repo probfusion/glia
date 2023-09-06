@@ -16,12 +16,18 @@ dependencies:
   - jupyterlab
   - scipy
   - matplotlib
+  - pyarrow
   # Web Essentials
   - urllib3 # better urllib
   - httpx # async requests
   # Data Science General
   - ydata-profiling # automatic eda
   - streamlit
+  - ipympl
+  - ipywidgets
+  # Snowflake
+  - streamlit
+  - snowflake-connector-python
   # Plotting
   - seaborn
   - plotly
@@ -49,11 +55,16 @@ dependencies:
   - sparse_dot_topn
   - rapidfuzz
   # polyfuzz and string_grouper not available on conda-forge yet.
+  # Web General
+  - sqlalchemy
   # Web Scraping
   - selenium # standard
   - beautifulsoup4 # standard
-  # selectolax not available in conda. faster beautifulsoup4
   - pytest-playwright # better selenium
+  # selectolax not available in conda. faster beautifulsoup4
+  # QOL
+  - tqdm
+  - python-dotenv
   # Code Quality
   - nptyping # better numpy and pandas type hinting
   - beartype # fast runtime type checking with validation
