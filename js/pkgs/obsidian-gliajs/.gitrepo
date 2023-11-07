@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/probfusion/obsidian-gliajs.git
 	branch = master
-	commit = 27f39d1a643c70f15b8cbb6b07965d5af035c109
+	commit = c2229fa1969f3fa7fbde2a05fc98879bccdc2911
 	method = merge
 	cmdver = 0.4.6
-	parent = b51fa33094d6c0f97277e1cf6b1470585ef0420b
+	parent = 08db035f2e292479d3b05c226d85138128f2b04a
