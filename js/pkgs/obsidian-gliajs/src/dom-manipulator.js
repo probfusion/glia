@@ -105,12 +105,15 @@ const readViewLineRemover = (lineSelector = 'div.cm-line.glia-rendered') => {
  * Fixes Obsidian Dataview's markdown rendering discrepencies. Adds wrapped line breaks before
  * empty lines for Live Preview and removes them for Reading mode. Allows for dynamically
  * rendered templates in both Live Preview and Reading mode, unlike Templater.
- * @param rawMd - Multiline string containing the markdown to be rendered.
+ * @param md - Multiline string containing the markdown to be rendered.
  * @param dv - The dataview object.
  */
-const renderMd = (rawMd, dv, tag = 'section', extraClass = 'glia-rendered') => {
+const renderMd = (md, dv, fixTable = true, tag = 'section', extraClass = 'glia-rendered') => {
   // Add lines for Live Preview
-  const [newMd, _] = addLineEls(rawMd)
+  let [newMd, _] = addLineEls(md)
+  if (fixTable) {
+    newMd = newMd.replace(/\\\\\|/g, '\\|')
+  }
 
   // Render the template in the specified parent element.
   let parentEl

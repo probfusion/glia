@@ -20,10 +20,14 @@ const getPageByName = (app, dv, name) => {
   const pagePath = Path.resolve(app.vault.adapter.basePath, dv.page(name).file.path);
   return readFile(pagePath);
 };
+const initialCheck = (dv) => {
+  dv.paragraph("Success: glia js library has been loaded as a global variable.");
+};
 const utils = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   getPageByName,
   globalHas,
+  initialCheck,
   noIndent,
   readFile,
   throwError
@@ -68,8 +72,11 @@ const readViewLineRemover = (lineSelector = "div.cm-line.glia-rendered") => {
     setTimeout(() => observer.disconnect(), 1e3);
   }
 };
-const renderMd = (rawMd, dv, tag = "section", extraClass = "glia-rendered") => {
-  const [newMd, _] = addLineEls(rawMd);
+const renderMd = (md, dv, fixTable = true, tag = "section", extraClass = "glia-rendered") => {
+  let [newMd, _] = addLineEls(md);
+  if (fixTable) {
+    newMd = newMd.replace(/\\\\\|/g, "\\|");
+  }
   let parentEl;
   try {
     parentEl = dv.el(tag, newMd, { cls: extraClass });

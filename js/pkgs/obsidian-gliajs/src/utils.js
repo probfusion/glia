@@ -20,4 +20,8 @@ const getPageByName = (app, dv, name) => {
   return readFile(pagePath)
 }
 
+export const initialCheck = (dv) => {
+  dv.paragraph('Success: glia js library has been loaded as a global variable.')
+}
+
 export { readFile, noIndent, throwError, globalHas, getPageByName }
