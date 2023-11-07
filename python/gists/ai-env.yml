@@ -17,6 +17,8 @@ dependencies:
   - scipy
   - matplotlib
   - pyarrow
+  - openpyxl
+  - xlsxwriter
   # Web Essentials
   - urllib3 # better urllib
   - httpx # async requests
@@ -54,6 +56,7 @@ dependencies:
   - bertopic # topic modeling
   - sparse_dot_topn
   - rapidfuzz
+  - openai
   # polyfuzz and string_grouper not available on conda-forge yet.
   # Web General
   - sqlalchemy

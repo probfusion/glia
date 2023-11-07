@@ -29,10 +29,12 @@ const utils = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePropert
   throwError
 }, Symbol.toStringTag, { value: "Module" }));
 const grandpaKidnaps = (parent, grandpa) => {
-  while (parent.firstChild) {
-    grandpa.insertBefore(parent.firstChild, parent);
+  if (parent?.hasChildNodes()) {
+    while (parent.firstChild) {
+      grandpa.insertBefore(parent.firstChild, parent);
+    }
+    grandpa.removeChild(parent);
   }
-  grandpa.removeChild(parent);
 };
 const addLineEls = (rawMd, extraClass = "glia-rendered") => {
   const lineTemplate = `<div class="cm-line ${extraClass}"><br></div>
@@ -52,19 +54,31 @@ const addLineEls = (rawMd, extraClass = "glia-rendered") => {
 const readViewLineRemover = (lineSelector = "div.cm-line.glia-rendered") => {
   const removeLines = (mutations) => {
     const ndList = mutations.reduce((nodes, mut) => nodes.concat(...mut.addedNodes), []);
-    ndList.forEach((nd) => nd?.querySelectorAll?.(lineSelector)?.forEach((ln) => ln.remove()));
+    for (const nd of ndList) {
+      nd?.querySelectorAll?.(lineSelector)?.forEach((ln) => ln.remove());
+    }
   };
   const readViewEls = document.querySelectorAll(".mod-active .markdown-reading-view");
-  readViewEls.forEach((el) => {
-    el.querySelectorAll(lineSelector).forEach((line) => line.remove());
+  for (const el of readViewEls) {
+    for (const line of el.querySelectorAll(lineSelector)) {
+      line.remove();
+    }
     const observer = new MutationObserver(removeLines);
     observer.observe(el, { childList: true, subtree: true });
     setTimeout(() => observer.disconnect(), 1e3);
-  });
+  }
 };
 const renderMd = (rawMd, dv, tag = "section", extraClass = "glia-rendered") => {
   const [newMd, _] = addLineEls(rawMd);
-  const parentEl = dv.el(tag, newMd, { cls: extraClass });
+  let parentEl;
+  try {
+    parentEl = dv.el(tag, newMd, { cls: extraClass });
+  } catch (error) {
+    throw Error(`MD: ${newMd}
+Tag: ${tag}
+Class: ${extraClass}
+` + error.message);
+  }
   const childSpan = parentEl.querySelector("span.node-insert-event");
   grandpaKidnaps(childSpan, parentEl);
   readViewLineRemover();

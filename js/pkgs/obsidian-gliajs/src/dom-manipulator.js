@@ -6,10 +6,12 @@ import { throwError } from './utils.js'
  * @param grandpa - The grandparent node who steals the children and cuts off the parent.
  */
 const grandpaKidnaps = (parent, grandpa) => {
-  while (parent.firstChild) {
-    grandpa.insertBefore(parent.firstChild, parent)
+  if (parent?.hasChildNodes()) {
+    while (parent.firstChild) {
+      grandpa.insertBefore(parent.firstChild, parent)
+    }
+    grandpa.removeChild(parent)
   }
-  grandpa.removeChild(parent)
 }
 
 /**
@@ -81,18 +83,22 @@ const readViewLineRemover = (lineSelector = 'div.cm-line.glia-rendered') => {
   // Observer callback to remove lines that match lineSelector
   const removeLines = (mutations) => {
     const ndList = mutations.reduce((nodes, mut) => nodes.concat(...mut.addedNodes), [])
-    ndList.forEach((nd) => nd?.querySelectorAll?.(lineSelector)?.forEach((ln) => ln.remove()))
+    for (const nd of ndList) {
+      nd?.querySelectorAll?.(lineSelector)?.forEach((ln) => ln.remove())
+    }
   }
 
   const readViewEls = document.querySelectorAll('.mod-active .markdown-reading-view')
-  readViewEls.forEach((el) => {
+  for (const el of readViewEls) {
     // First pass used for subsequent view refreshes
-    el.querySelectorAll(lineSelector).forEach((line) => line.remove())
+    for (const line of el.querySelectorAll(lineSelector)) {
+      line.remove()
+    }
     // Observers used for initial view load
     const observer = new MutationObserver(removeLines)
     observer.observe(el, { childList: true, subtree: true })
     setTimeout(() => observer.disconnect(), 1000)
-  })
+  }
 }
 
 /**
@@ -107,7 +113,12 @@ const renderMd = (rawMd, dv, tag = 'section', extraClass = 'glia-rendered') => {
   const [newMd, _] = addLineEls(rawMd)
 
   // Render the template in the specified parent element.
-  const parentEl = dv.el(tag, newMd, { cls: extraClass })
+  let parentEl
+  try {
+    parentEl = dv.el(tag, newMd, { cls: extraClass })
+  } catch (error) {
+    throw Error(`MD: ${newMd}\nTag: ${tag}\nClass: ${extraClass}\n` + error.message)
+  }
 
   // Put childSpan's children (the rendered MD) under parentEl
   const childSpan = parentEl.querySelector('span.node-insert-event')
