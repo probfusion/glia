@@ -1,0 +1,1 @@
+SetEnvVar 'PYTHONPATH' $PSScriptRoot 'Machine'

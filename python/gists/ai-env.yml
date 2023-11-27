@@ -80,3 +80,4 @@ dependencies:
   - pipreqs # pip requirements.txt generator based on imports in project
   # Extras
   - jupyter-collaboration
+  - pyinstrument

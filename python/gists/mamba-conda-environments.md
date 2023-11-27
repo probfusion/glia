@@ -15,7 +15,7 @@ just run `mamba init powershell`. it should create the appropriate `profile.ps1`
 favorite export command:
 
 ```shell
-conda env export --from-history | grep -v "prefix" > myenv.yml
+mamba env export --from-history | grep -v "prefix" > myenv.yml
 ```
 
 exports only explicitly installed packages without the prefix (which tells mamba a path to create the environment in).
@@ -31,7 +31,7 @@ mamba env export | cut -f-2 -d '=' # also exports without build suffices
 mamba env export | cut -f-1 -d '=' # export without version numbers
 mamba env export | grep -v "prefix" # export without prefix
 mamba env export | findstr -v "prefix" # export without prefix on windows (you should install grep with scoop!)
-conda env export -n myenv | cut -f-1 -d '=' | grep -v "prefix" > myenv.yml # combined
+mamba env export -n myenv | cut -f-1 -d '=' | grep -v "prefix" > myenv.yml # combined
 mamba env export --from-history # only export explicitly installed packages
 ```
 

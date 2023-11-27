@@ -23,12 +23,22 @@ const getPageByName = (app, dv, name) => {
 const initialCheck = (dv) => {
   dv.paragraph("Success: glia js library has been loaded as a global variable.");
 };
+const once = (fn) => {
+  let done = false;
+  return (...args) => {
+    if (done)
+      return;
+    done = true;
+    fn(...args);
+  };
+};
 const utils = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   getPageByName,
   globalHas,
   initialCheck,
   noIndent,
+  once,
   readFile,
   throwError
 }, Symbol.toStringTag, { value: "Module" }));

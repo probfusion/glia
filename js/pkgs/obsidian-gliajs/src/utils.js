@@ -24,4 +24,13 @@ export const initialCheck = (dv) => {
   dv.paragraph('Success: glia js library has been loaded as a global variable.')
 }
 
+export const once = (fn) => {
+  let done = false
+  return (...args) => {
+    if (done) return
+    done = true
+    fn(...args)
+  }
+}
+
 export { readFile, noIndent, throwError, globalHas, getPageByName }

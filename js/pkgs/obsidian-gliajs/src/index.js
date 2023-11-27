@@ -20,8 +20,16 @@
 
 import * as dom from './dom-manipulator.js'
 import * as utils from './utils.js'
+
+// export let drawn = {}
+
 const renderTemplate = (app, dv, name) => {
   const template = utils.getPageByName(app, dv, name)
+  // const path = dv.current().file.path
+  // if (!drawn[path]) {
+  //   dom.renderMd(template, dv)
+  //   drawn[path] = true
+  // }
   dom.renderMd(template, dv)
 }
 
